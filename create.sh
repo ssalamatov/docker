@@ -6,7 +6,7 @@ export PYTHONPATH
 set -euo pipefail
 
 WORK_DIR="${WORKSPACE:=$(pwd)}"
-LOG_DIR="${WORK_DIR}/log"
+LOG_DIR="${WORK_DIR}/logs"
 
 DOCKER_NAME="docker-python"
 
@@ -27,7 +27,7 @@ create() {
   export PYTHONDONTWRITEBYTECODE=true
 
   # Create the virtualenv
-  python3.6 -m venv "${ENV_PATH}"
+  python3 -m venv "${ENV_PATH}"
   source "${ENV_PATH}/bin/activate"
 
   "${ENV_PATH}/bin/pip" install --upgrade pip
